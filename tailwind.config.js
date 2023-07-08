@@ -7,6 +7,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        'primary': 'var(--font-roboto)',
+        'secondary': 'var(--font-poppins)',
+      },
       colors: {
         'white': {
           100: '#ffffff',
@@ -29,6 +33,7 @@ module.exports = {
         'gray': {
           200: '#DBDCDD',
           300: '#CECECE',
+          400: '#A8A8B3',
         }
       }
     },
