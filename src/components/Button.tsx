@@ -1,12 +1,14 @@
-type ButtonProps = {
+interface ButtonProps {
   children: React.ReactNode
-  className?: string
+  customStyle?: string
+  type?: "button" | "submit" | "reset" 
+  isDisabled?: boolean
 }
 
-export const Button = (props: ButtonProps) => {
+export const Button = ({children, type, customStyle, isDisabled=false}: ButtonProps) => {
   return (
     <div>
-      <button {...props}></button>
+      <button className={`${customStyle} ${type} ${isDisabled} w-80 rounded-lg px-2 h-[50px] flex items-center justify-center gap-2 `}>{children}</button>
     </div>
   )
 }
