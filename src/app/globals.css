@@ -4,5 +4,8 @@
 
 :root {}
 
-body {}
+body {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
 
