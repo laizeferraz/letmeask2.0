@@ -34,6 +34,7 @@ module.exports = {
           200: '#DBDCDD',
           300: '#CECECE',
           400: '#A8A8B3',
+          500: '#737380',
         }
       }
     },
