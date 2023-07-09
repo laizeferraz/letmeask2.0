@@ -1,21 +1,28 @@
-import Image from "next/image";
+import Image from "next/image"
 import copyImg from "../../public/images/copy.svg"
 
-type RoomCodeProps = {
-  code: string;
+interface RoomCodeProps {
+  code: string
 }
 
-export function RoomCode(props: RoomCodeProps) {
+export const RoomCode = ({code}: RoomCodeProps) => {
   function copyRoomCodeToClipboard() {
-    navigator.clipboard.writeText(props.code)
+    navigator.clipboard.writeText(code)
   }
 
+  const ellipsify = (code: string): string => {
+    if (code.length > 5) {
+      return `${code.slice(0, 3)}...${code.slice(code.length - 3)}`;
+    }
+    return code;
+  };
+
   return (
-    <button className="" onClick={copyRoomCodeToClipboard}>
-      <div>
+    <button className="h-10 rounded-[8px] overflow-hidden bg-white-100 border-blue-500 border-2 flex" onClick={copyRoomCodeToClipboard}>
+      <div className="bg-blue-500 px-3 flex justify-center items-center h-full">
         <Image src={copyImg} alt="Copy room code" />
       </div>
-      <span>Room #{props.code}</span>
+      <span className=" self-center pr-4 pl-3 grow text-xs font-medium">Room #{ellipsify(code)}</span>
     </button>
   )
 }
