@@ -18,11 +18,11 @@ export const RoomCode = ({code}: RoomCodeProps) => {
   };
 
   return (
-    <button className="h-10 rounded-[8px] overflow-hidden bg-white-100 border-blue-500 border-2 flex" onClick={copyRoomCodeToClipboard}>
-      <div className="bg-blue-500 px-3 flex justify-center items-center h-full">
+    <button className="h-10 rounded-[8px] overflow-hidden bg-white-100 border-blue-500 border-2 flex hover:bg-white-200" onClick={copyRoomCodeToClipboard}>
+      <div className="bg-blue-500 px-3 flex justify-center items-center h-full hover:bg-blue-600">
         <Image src={copyImg} alt="Copy room code" />
       </div>
-      <span className=" self-center pr-4 pl-3 grow text-xs font-medium">Room #{ellipsify(code)}</span>
+      <span className="self-center pr-4 pl-3 grow text-xs font-medium">Room #{ellipsify(code)}</span>
     </button>
   )
 }
