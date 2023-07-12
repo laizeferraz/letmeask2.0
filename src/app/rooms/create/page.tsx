@@ -29,9 +29,10 @@ export default function  CreateNewRoom () {
     await set(newRoomRef, {
       title: newRoom,
       authorId: user?.id,
+      authorName: user?.name,
     })
 
-    router.push(`/rooms/${newRoomRef.key}`)
+    router.push(`/rooms/admin/${newRoomRef.key}`)
   }
 
   return (
