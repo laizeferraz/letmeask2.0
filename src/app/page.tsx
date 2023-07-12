@@ -17,9 +17,9 @@ export default function Home() {
   const router = useRouter()
   const { width } = useViewport()
   const breakpoint = 1024
-
+  
   const [roomCode, setRoomCode] = useState('')
-
+  
   const {user, signInWithGoogle} = useAuth()
 
   async function handleSignInAndCreateRoom () {
@@ -43,7 +43,12 @@ export default function Home() {
       alert('Room already closed.')
       return
     }
-    router.push(`/rooms/${roomCode}`)
+
+    if (roomRef.val().authorName === user?.name) {
+      router.push(`/rooms/admin/${roomCode}`)
+    } else {
+      router.push(`/rooms/${roomCode}`)
+    }
   }
   return (
     <>
