@@ -19,6 +19,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/favicon.svg" />
+      </head>
       <body className={`${roboto.variable} ${poppins.variable} font-primary bg-white-200`}>
         <AuthContextProvider>
         {children}
