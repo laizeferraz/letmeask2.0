@@ -39,13 +39,13 @@ export default function Home() {
       alert('Room does not exist.')
       return
     }
-    if (roomRef.val().endedAt) {
+    if (roomRef.val().closedAt) {
       alert('Room already closed.')
       return
     }
 
     if (roomRef.val().authorName === user?.name) {
-      router.push(`/rooms/admin/${roomCode}`)
+        router.push(`/rooms/admin/${roomCode}`)
     } else {
       router.push(`/rooms/${roomCode}`)
     }
