@@ -11,6 +11,9 @@ import { Question } from "@/components/Question"
 import { useRoom } from "@/hooks/useRoom"
 import { database } from "@/services/firebase"
 import { ref, remove, update } from "firebase/database"
+import { useState } from "react"
+import { CloseRoomModal } from "@/components/CloseRoomModal"
+import { RemoveQuestionModal } from "@/components/RemoveQuestionModal"
 
 
 export default function Room () {
@@ -19,11 +22,30 @@ export default function Room () {
   const roomId = params.id
   const { questions, title } = useRoom(roomId)
 
+  const [closeRoomModalIsOpen, setCloseRoomModalIsOpen] = useState(false)
+  const [deleteQuestionModalIsOpen, setdeleteQuestionModalIsOpen] = useState(false)
+
+  function closeCloseRoomModal() {
+    setCloseRoomModalIsOpen(false)
+  }
+
+  function openCloseRoomModal() {
+    setCloseRoomModalIsOpen(true) 
+  }
+
+  function closeDeleteQuestionModal() {
+    setdeleteQuestionModalIsOpen(false)
+  }
+  function openDeleteQuestionModal() {
+    setdeleteQuestionModalIsOpen(true)
+  }
+
   async function handleCloseRoom() {
     const roomRef = ref(database, `rooms/${roomId}`)
     await update(roomRef,{
       closedAt: new Date(),
     });
+    setCloseRoomModalIsOpen(false)
     router.push("/")
   }
   async function handleCheckQuestionAsAnswered(questionId: string) {
@@ -56,12 +78,13 @@ export default function Room () {
           <div className="flex items-center gap-2">
             <RoomCode code={params.id} />
             <button 
-              className="h-9 rounded-lg outline outline-2 outline-blue-500 bg-white-100 hover:bg-white-200 px-2 text-blue-600"
+              className="h-9 rounded-lg outline outline-2 outline-blue-500 bg-white-100 hover:bg-white-200 px-1 lg:px-2 text-blue-600"
               type="button"
-              onClick={handleCloseRoom}
+              onClick={openCloseRoomModal}
             >
-              End room
+              Close room
             </button>
+            <CloseRoomModal isOpen={closeRoomModalIsOpen} closeModal={closeCloseRoomModal} handleCloseRoom={handleCloseRoom}/>
           </div>
         </div>
       </header>
@@ -114,13 +137,14 @@ export default function Room () {
                 <button
                   className="h-4 w-4 lg:h-6 lg:w-6"
                   type="button"
-                  onClick={() => handleDeleteQuestion(question.id)}
+                  onClick={openDeleteQuestionModal}
                 >
                   <Image
                     className="h-4 w-4 lg:h-6 lg:w-6"
                     src={deleteImg} 
                     alt="delete question" 
                   />
+                <RemoveQuestionModal isOpen={deleteQuestionModalIsOpen} closeModal={closeDeleteQuestionModal} handleDeleteQuestion={() => handleDeleteQuestion(question.id)}/>
                 </button>
               </Question>
             );
