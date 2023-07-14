@@ -1,34 +1,54 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<p align="center">
+  <img alt="Letmeask" src=".github/logoBlue.svg" width="160px">
+</p>
 
-## Getting Started
+<h1 align="center">
+    <img alt="Letmeask" src=".github/cover.svg" />
+</h1>
 
-First, run the development server:
+<br>
+
+## 🧪 Technologies
+
+This project was developed using the foloowinf technologies:
+
+- [Next.js](https://nextjs.org/)
+- [Firebase](https://firebase.google.com/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+
+## 🚀 Getting Started
+
+Clone the project and navigate to the project folder.
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+$ https://github.com/laizeferraz/letmeask2.0.git
+$ cd letmeask2.0
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+To run the development server: 
+```bash
+# Install the dependencies
+$ npm install
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+# Run the project
+$ npm run dev
+```
+The app runs on the browser in the URL http://localhost:3000.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Note: You need to create an account with [Firebase](https://firebase.google.com/) and create a project to use Realtime Database.
 
-## Learn More
+## 💻 Project
 
-To learn more about Next.js, take a look at the following resources:
+Letmeask is perfect for content creators to create Q&A rooms and talk in a more organized and democratic with your public.  
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This is an update of a project development during the **[Next Level Week Together](https://nextlevelweek.com/)**, offered by [Rocketseat](https://www.rocketseat.com.br/) in June 2021. 
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## 🔖 Layout
 
-## Deploy on Vercel
+You can see the layout on Figma through the link bellow:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- [Layout Web/Mobile](https://www.figma.com/file/B7ZdhZpghOaQHW2aELMdBH/Letmeask) 
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Note: You need to have an account on [Figma](http://figma.com/) to access the link above.
+
