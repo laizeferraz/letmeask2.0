@@ -10,7 +10,7 @@
 
 ## 🧪 Technologies
 
-This project was developed using the foloowinf technologies:
+This project was developed using the following technologies:
 
 - [Next.js](https://nextjs.org/)
 - [Firebase](https://firebase.google.com/)
