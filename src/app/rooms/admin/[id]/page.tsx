@@ -62,10 +62,8 @@ export default function Room () {
   }
 
   async function handleDeleteQuestion(questionId: string) {
-    if (window.confirm("Are you sure you want to delete this question?")) {
       const deleteQuestionRef = ref(database, `rooms/${roomId}/questions/${questionId}`)
       await remove(deleteQuestionRef);
-    }
   }
 
   return (
