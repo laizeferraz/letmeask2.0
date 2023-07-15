@@ -20,7 +20,7 @@ export const Question = ({
 }: QuestionProps) => {
   return (
     <div
-      className={`${isHighlighted ? "bg-blue-500/10": "bg-white-300"} rounded-[8px] shadow p-7 mb-4 ${isAnswered && 'bg-gray-200/50 border-0'} ${isHighlighted && "border-blue-600 border shadow"}`}
+      className={`${isHighlighted && "bg-blue-500/10"} rounded-[8px] shadow p-7 mb-4 ${isAnswered && 'bg-gray-200/50 border-0'} ${isHighlighted && "bg-blue-500/10 border-blue-600 border shadow"}`}
     >
       <p className="text-black-700">{content}</p>
       <footer className="flex justify-between items-center mt-7">
