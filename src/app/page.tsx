@@ -16,7 +16,7 @@ import { get, ref } from "firebase/database"
 export default function Home() {
   const router = useRouter()
   const { width } = useViewport()
-  const breakpoint = 1024
+  const breakpoint = 768
   
   const [roomCode, setRoomCode] = useState('')
   
