@@ -11,7 +11,7 @@ import { useParams } from "next/navigation";
 import { database } from "@/services/firebase";
 import { Question } from "@/components/Question";
 import { useRoom } from "@/hooks/useRoom";
-import { EmptyRoom } from "@/components/EmptyRomm";
+import { EmptyRoom } from "@/components/EmptyRoom";
 import { ThumbsUpIcon } from "lucide-react";
 
 
