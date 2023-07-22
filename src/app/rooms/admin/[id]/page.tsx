@@ -11,7 +11,7 @@ import { useState } from "react"
 import { CloseRoomModal } from "@/components/CloseRoomModal"
 import { RemoveQuestionModal } from "@/components/RemoveQuestionModal"
 import { CheckCircle2, MessageCircle, TrashIcon } from "lucide-react"
-import { EmptyRoom } from "@/components/EmptyRomm"
+import { EmptyRoom } from "@/components/EmptyRoom"
 
 
 export default function Room () {
@@ -22,6 +22,7 @@ export default function Room () {
 
   const [closeRoomModalIsOpen, setCloseRoomModalIsOpen] = useState(false)
   const [deleteQuestionModalIsOpen, setdeleteQuestionModalIsOpen] = useState(false)
+  const [questionId, setQuestionId] = useState("")
 
   function closeCloseRoomModal() {
     setCloseRoomModalIsOpen(false)
@@ -34,7 +35,9 @@ export default function Room () {
   function closeDeleteQuestionModal() {
     setdeleteQuestionModalIsOpen(false)
   }
-  function openDeleteQuestionModal() {
+  
+  function openDeleteQuestionModal(questionId: string) {
+    setQuestionId(questionId)
     setdeleteQuestionModalIsOpen(true)
   }
 
@@ -64,6 +67,7 @@ export default function Room () {
   async function handleDeleteQuestion(questionId: string) {
       const deleteQuestionRef = ref(database, `rooms/${roomId}/questions/${questionId}`)
       await remove(deleteQuestionRef);
+      setdeleteQuestionModalIsOpen(false)
   }
 
   return (
@@ -121,11 +125,11 @@ export default function Room () {
                 )}
                 <button
                   type="button"
-                  onClick={openDeleteQuestionModal}
+                  onClick={() => openDeleteQuestionModal(question.id)}
                 >
                   <TrashIcon className="h-5 w-5 lg:h-6 lg:w-6 stroke-gray-500 hover:stroke-red-500"/>
-                <RemoveQuestionModal isOpen={deleteQuestionModalIsOpen} closeModal={closeDeleteQuestionModal} handleDeleteQuestion={() => handleDeleteQuestion(question.id)}/>
                 </button>
+                <RemoveQuestionModal id={questionId} isOpen={deleteQuestionModalIsOpen} closeModal={closeDeleteQuestionModal} handleDeleteQuestion={() => handleDeleteQuestion(questionId)}/>
               </Question>
             );
           })}

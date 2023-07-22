@@ -4,9 +4,10 @@ interface RemoveQuestionModalProps {
   isOpen: boolean;
   closeModal: () => void;
   handleDeleteQuestion: (e: React.MouseEvent<HTMLButtonElement>, questionId?:string) => Promise<void>;
+  id: string;
 }
 
-export const RemoveQuestionModal = ({ isOpen, closeModal, handleDeleteQuestion }: RemoveQuestionModalProps) => {
+export const RemoveQuestionModal = ({ isOpen, closeModal, handleDeleteQuestion, id }: RemoveQuestionModalProps) => {
   return <Modal 
           isOpen={isOpen} 
           onClose={closeModal} 
@@ -14,5 +15,7 @@ export const RemoveQuestionModal = ({ isOpen, closeModal, handleDeleteQuestion }
           content="Are you sure you want to delete this question?" 
           textButton="Delete" 
           textButtonCancel="Cancel" 
-          handleDeleteQuestion={handleDeleteQuestion} />;
+          handleDeleteQuestionConfirmation={handleDeleteQuestion}
+          id={id}
+         />;
 }

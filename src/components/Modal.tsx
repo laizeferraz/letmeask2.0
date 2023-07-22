@@ -3,16 +3,17 @@ import { Fragment } from 'react'
 
 interface ModalProps {
   onClose: () => void
-  handleDeleteQuestion?: (e: React.MouseEvent<HTMLButtonElement>, questionId?:string) => Promise<void>
+  handleDeleteQuestionConfirmation?: (e: React.MouseEvent<HTMLButtonElement>, questionId?:string) => Promise<void>
   handleEndRoom?: () => Promise<void>
   title?: string
   isOpen: boolean
   content?: string
   textButtonCancel?: string
   textButton?: string
+  id?: string
 }
 
-export const Modal = ({ onClose, title, isOpen, content, textButton, textButtonCancel, handleDeleteQuestion, handleEndRoom }: ModalProps) => {
+export const Modal = ({ onClose, title, isOpen, content, textButton, textButtonCancel, handleEndRoom, handleDeleteQuestionConfirmation, id }: ModalProps) => {
 
   return (
     <>
@@ -65,7 +66,8 @@ export const Modal = ({ onClose, title, isOpen, content, textButton, textButtonC
                     <button
                       type="button"
                       className="inline-flex justify-center rounded-md border border-transparent bg-red-500 px-4 py-2 text-sm font-medium text-white-100 hover:bg-red-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-                      onClick={handleDeleteQuestion || handleEndRoom}
+                      onClick={handleEndRoom || handleDeleteQuestionConfirmation}
+                      id={id}
                     >
                       {textButton}
                     </button>
