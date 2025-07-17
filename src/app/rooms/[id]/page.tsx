@@ -19,7 +19,7 @@ export default function Room () {
   const params = useParams();
   const { user, signInWithGoogle } = useAuth();
   const [newQuestion, setNewQuestion] = useState("");
-  const roomId = params.id;
+  const roomId = Array.isArray(params.id) ? params.id[0] : params.id;
   const { questions, title } = useRoom(roomId);
 
 
@@ -78,7 +78,7 @@ export default function Room () {
         <div className="max-w-[1200px] lg:flex lg:mx-auto lg:items-center lg:justify-between">
           <Image className="hidden lg:block lg:min-h-10" src={logoImg} width={150} alt="Letmeask" />
           <div className="flex items-center gap-4">
-            <RoomCode code={params.id} />
+            <RoomCode code={roomId} />
           </div>
         </div>
       </header>
