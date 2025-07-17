@@ -17,7 +17,7 @@ import { EmptyRoom } from "@/components/EmptyRoom"
 export default function Room () {
   const router = useRouter()
   const params = useParams()
-  const roomId = params.id
+  const roomId = Array.isArray(params.id) ? params.id[0] : params.id
   const { questions, title } = useRoom(roomId)
 
   const [closeRoomModalIsOpen, setCloseRoomModalIsOpen] = useState(false)
@@ -76,7 +76,7 @@ export default function Room () {
         <div className="max-w-[1200px] lg:flex lg:mx-auto lg:items-center lg:justify-between">
           <Image className="hidden lg:block lg:min-h-10" src={logoImg} alt="Letmeask" />
           <div className="flex items-center justify-between gap-2">
-            <RoomCode code={params.id} />
+            <RoomCode code={roomId} />
             <button 
               className="h-9 rounded-lg outline outline-2 outline-blue-500 bg-white-100 hover:bg-white-200 px-1 lg:px-2 text-blue-600"
               type="button"
